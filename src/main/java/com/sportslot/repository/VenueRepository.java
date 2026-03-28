@@ -10,6 +10,8 @@ public interface VenueRepository extends JpaRepository<Venue, Long> {
 
     List<Venue> findBySportIgnoreCase(String sport);
 
+    List<Venue> findByOwnerId(Long ownerId);
+
     @Query("SELECT v FROM Venue v WHERE " +
            "LOWER(v.name) LIKE LOWER(CONCAT('%',:q,'%')) OR " +
            "LOWER(v.location) LIKE LOWER(CONCAT('%',:q,'%'))")
@@ -18,5 +20,6 @@ public interface VenueRepository extends JpaRepository<Venue, Long> {
     @Query("SELECT v FROM Venue v WHERE LOWER(v.sport) = LOWER(:sport) AND (" +
            "LOWER(v.name) LIKE LOWER(CONCAT('%',:q,'%')) OR " +
            "LOWER(v.location) LIKE LOWER(CONCAT('%',:q,'%')))")
-    List<Venue> searchBySportAndQuery(@Param("sport") String sport, @Param("q") String query);
+    List<Venue> searchBySportAndQuery(@Param("sport") String sport,
+                                      @Param("q") String query);
 }

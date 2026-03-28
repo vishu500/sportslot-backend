@@ -1,10 +1,12 @@
 package com.sportslot.dto.request;
 
+import com.sportslot.entity.User;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
 public class RegisterRequest {
+
     @NotBlank(message = "Name is required")
     private String name;
 
@@ -17,4 +19,7 @@ public class RegisterRequest {
     private String password;
 
     private String phone;
+
+    // USER or VENUE_OWNER — defaults to USER if not provided
+    private User.Role role;
 }
