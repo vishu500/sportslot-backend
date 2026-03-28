@@ -7,7 +7,10 @@ com\sportslot\config\CustomUserDetailsService.class
 com\sportslot\dto\request\RegisterRequest.class
 com\sportslot\entity\User$UserBuilder.class
 com\sportslot\entity\Review.class
+com\sportslot\dto\request\SlotRequest.class
 com\sportslot\entity\Slot.class
+com\sportslot\dto\request\VenueRequest.class
+com\sportslot\controller\VenueOwnerController.class
 com\sportslot\controller\BookingController.class
 com\sportslot\repository\VenueRepository.class
 com\sportslot\controller\ReviewController.class
@@ -18,6 +21,7 @@ com\sportslot\entity\Booking$BookingBuilder.class
 com\sportslot\service\VenueService.class
 com\sportslot\config\JwtAuthFilter.class
 com\sportslot\entity\Booking.class
+com\sportslot\service\VenueOwnerService.class
 com\sportslot\entity\Review$ReviewBuilder.class
 com\sportslot\SportSlotApplication.class
 com\sportslot\entity\Venue$VenueBuilder.class

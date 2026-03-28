@@ -1,6 +1,7 @@
 package com.sportslot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -8,7 +9,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "venues")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Venue {
 
     @Id
@@ -40,6 +45,12 @@ public class Venue {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    // Venue owner
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    @JsonIgnoreProperties({"venues", "bookings", "reviews", "password", "hibernateLazyInitializer"})
+    private User owner;
 
     @JsonIgnore
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
